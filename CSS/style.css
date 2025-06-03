@@ -1,0 +1,33 @@
+.board {
+    display: grid;
+    height: 400px;
+    width: 400px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.squares {
+    background-color: lightgray;
+    border-bottom: 2px solid black;
+    border-right: 2px solid black;
+}
+
+#square3 {
+    border-right: none;
+}
+
+#square6 {
+    border-right: none;
+}
+
+#square7 {
+    border-bottom: none;
+}
+
+#square8 {
+    border-bottom: none;
+}
+
+#square9 {
+    border-right: none;
+    border-bottom: none;
+}
