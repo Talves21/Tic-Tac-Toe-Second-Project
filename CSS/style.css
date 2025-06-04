@@ -11,6 +11,10 @@
     border-right: 2px solid black;
 }
 
+.squares:hover {
+    background-color: gray;
+}
+
 #square3 {
     border-right: none;
 }
@@ -30,4 +34,16 @@
 #square9 {
     border-right: none;
     border-bottom: none;
+}
+
+.x {
+    font-size: 30px;
+    text-align: center;
+    /* padding-top: 30px; */
+}
+
+.o {
+    font-size: 30px;
+    text-align: center;
+    /* padding-top: 30px; */
 }
