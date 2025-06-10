@@ -3,9 +3,11 @@ let reset = document.querySelector('.reset');
 let board = document.querySelector('.board');
 let squares = document.querySelectorAll('.squares');
 let text = document.querySelector('.text');
-let players = ['X', 'O'];
+let players = 'X';
 let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
-let spots = ['' ,'' , '', '', '', '', '', '', ''];
+// let spots = ['' ,'' , '', '', '', '', '', '', ''];
+let endGame = false;
+let winner = false;
 
 board.style.display = 'none';
 reset.style.display = 'none';
@@ -16,8 +18,6 @@ start.addEventListener('click', () => {
     start.style.display = 'none';
     players = 'X';
     text.innerText = "X's Turn";
-    let winner = false
-
 
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', () => {
@@ -25,40 +25,61 @@ start.addEventListener('click', () => {
                 let x = document.createElement('p');
                 x.classList.add('x');
                 squares[i].appendChild(x);
-                x.textContent = 'x';
+                x.innerText = 'x';
                 players = 'O';
                 squares[i].style.backgroundColor = 'gray';
                 text.innerText = `${players}'s Turn`;
+                checkWinner()
             } else {
                 let o = document.createElement('p');
                 o.classList.add('o');
                 squares[i].appendChild(o);
-                o.textContent = 'o';
+                o.innerText = 'o';
                 players = 'X';
                 squares[i].style.backgroundColor = 'gray';
                 text.innerText = `${players}'s Turn`;
+                checkWinner()
             }
         })
     }
-
-    for(let i = 0; i < win.length; i++) {
-        let winConditon = win[i];
-        let square1 = spots[winConditon[0]]
-        let square2 = spots[winConditon[1]]
-        let square3 = spots[winConditon[2]]
-
-        if(square1 == square2 && square2 == square3) {
-            let winner = true
-            break;
-        }
-    }
-
-    if(winner == true) {
-        text.textContent = `${players} wins!`;
-    }
 })
     
+function checkWinner (players) {
+    // for(let i = 0; i < win.length; i++) {
+    //     let [a, b, c] = win[i];
+    //     if (squares[a].innerText === players && squares[b].innerText === players && squares[c].innerText === players) {
+    //         return true;
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
+
+    // for(let i = 0; i < win.length; i++) {
+    //     let winConditon = win[i];
+    //     let square1 = spots[winConditon[0]]
+    //     let square2 = spots[winConditon[1]]
+    //     let square3 = spots[winConditon[2]]
+
+    //     if (square1 == "" || square2 == "" || square3 == "") {
+    //         continue
+    //     }
+
+    //     if(square1 === square2 && square2 === square3) {
+    //         let winner = true
+    //         break;
+    //     }
+    // }
+
+    //     if(winner == true) {
+    //         text.innerText = `${players} wins!`;
+    //         endGame = true;
+    //     }
+
+    //     if (endGame = true) {
+    //         return;
+    //     }
+}
 
 reset.addEventListener('click', () => {
     window.location.reload();
