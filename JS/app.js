@@ -13,7 +13,7 @@ reset.style.display = 'none';
 
 start.addEventListener('click', () => {
     board.style.display = 'grid';
-    reset.style.display = 'block';
+    reset.style.display = 'inline-block';
     start.style.display = 'none';
     text.innerText = "X's Turn";
 
