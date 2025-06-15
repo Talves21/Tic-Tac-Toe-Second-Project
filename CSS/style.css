@@ -75,5 +75,6 @@ button {
     color: white;
     width: 9%;
     height: 10%;
+    border: 1px solid orange;
     border-radius: 10%;
 }

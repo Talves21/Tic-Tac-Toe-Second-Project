@@ -30,9 +30,12 @@ start.addEventListener('click', () => {
                         spots[j] = players;
                     }
                 }
-                players = 'O';
+                if (winner === true) {
+                    players = 'X';
+                } else {
+                    players = 'O';
+                }
                 text.innerText = `${players}'s Turn`;
-                console.log(spots);
                 console.log(winner)
                 checkWinner()
             } else {
@@ -46,9 +49,12 @@ start.addEventListener('click', () => {
                         spots[j] = players;
                     }
                 }
-                players = 'X';
+                if (winner === true) {
+                    players = 'O';
+                } else {
+                    players = 'X';
+                }
                 text.innerText = `${players}'s Turn`;
-                console.log(spots);
                 console.log(winner)
                 checkWinner()
             }
@@ -73,9 +79,9 @@ function checkWinner () {
         }
     }
 
-        if(winner === true) {
-            text.innerText = `${players} wins!`;
-        }
+     if (winner === true) {
+        text.innerText = `${players} wins!`;
+    }
 }
 reset.addEventListener('click', () => {
     window.location.reload();
