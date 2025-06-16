@@ -30,11 +30,7 @@ start.addEventListener('click', () => {
                         spots[j] = players;
                     }
                 }
-                if (winner === true) {
-                    players = 'X';
-                } else {
-                    players = 'O';
-                }
+                players = 'O';
                 text.innerText = `${players}'s Turn`;
                 console.log(winner)
                 checkWinner()
@@ -49,11 +45,7 @@ start.addEventListener('click', () => {
                         spots[j] = players;
                     }
                 }
-                if (winner === true) {
-                    players = 'O';
-                } else {
-                    players = 'X';
-                }
+                players = 'X';
                 text.innerText = `${players}'s Turn`;
                 console.log(winner)
                 checkWinner()
@@ -61,6 +53,22 @@ start.addEventListener('click', () => {
         })
     }
 })
+
+function oWins () {
+            if (winner === true) {
+                players = 'O';
+            } else {
+                players = 'X';
+            }
+}
+
+function xWins () {
+            if (winner === true) {
+                players = 'X';
+            } else {
+                players = 'O';
+            }
+}
     
 function checkWinner () {
     for(let i = 0; i < win.length; i++) {
@@ -75,6 +83,8 @@ function checkWinner () {
 
         if(square1 === square2 && square2 === square3) {
             winner = true;
+            oWins()
+            xWins()
             break;
         }
     }
@@ -83,6 +93,11 @@ function checkWinner () {
         text.innerText = `${players} wins!`;
     }
 }
+
+function checkTie () {
+    
+}
+
 reset.addEventListener('click', () => {
     window.location.reload();
 })

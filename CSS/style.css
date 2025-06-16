@@ -78,3 +78,33 @@ button {
     border: 1px solid orange;
     border-radius: 10%;
 }
+
+@media screen and (max-width: 577px) {
+    button {
+        width: 20%;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    button {
+        width: 15%;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    button {
+        width: 13%;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    button {
+        width: 10%;
+    }
+}
+
+@media screen and (min-width: 1400px) {
+    button {
+        width: 8%;
+    }
+}
