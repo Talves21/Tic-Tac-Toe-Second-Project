@@ -32,7 +32,8 @@ start.addEventListener('click', () => {
                 }
                 players = 'O';
                 text.innerText = `${players}'s Turn`;
-                console.log(winner)
+                console.log(winner);
+                console.log(players)
                 checkWinner()
             } else {
                 let o = document.createElement('p');
@@ -48,6 +49,7 @@ start.addEventListener('click', () => {
                 players = 'X';
                 text.innerText = `${players}'s Turn`;
                 console.log(winner)
+                console.log(players);
                 checkWinner()
             }
         })
@@ -55,19 +57,15 @@ start.addEventListener('click', () => {
 })
 
 function oWins () {
-            if (winner === true) {
-                players = 'O';
-            } else {
-                players = 'X';
-            }
+    if (winner === true && players != 'O') {
+        players = 'O';
+    }
 }
 
 function xWins () {
-            if (winner === true) {
-                players = 'X';
-            } else {
-                players = 'O';
-            }
+    if (winner === true && players != 'X') {
+        players = 'X'
+    }
 }
     
 function checkWinner () {
@@ -83,18 +81,20 @@ function checkWinner () {
 
         if(square1 === square2 && square2 === square3) {
             winner = true;
+           if (players != 'O') {
             oWins()
+           } else {
             xWins()
+           }
             break;
         }
     }
 
      if (winner === true) {
         text.innerText = `${players} wins!`;
+    } else if (!spots.includes('')) {
+        text.innerText = `It's a Draw`;
     }
-}
-
-function checkTie () {
     
 }
 
