@@ -1,11 +1,15 @@
 body {
+    background-color: darkblue;
     text-align: center;
-    background-image: url("https://media.istockphoto.com/id/1140391355/vector/x-o-background-pattern-seamless-wallpaper-abstract-decorative-texture.jpg?s=612x612&w=0&k=20&c=7pTkKlx4ASHP3Atqhe8j5wS7Z-qujd7XMMfcp5pKI5Q=");
 }
 
 h1 {
-    background-color: black;
+    background-color: blue;
     color: white;
+}
+
+main {
+    background-color: darkblue;
 }
 
 .board {
@@ -63,8 +67,7 @@ h1 {
 }
 
 .text {
-    font-size: 45px;
-    color: orange;
+    color: white;
 }
 
 button {
