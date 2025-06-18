@@ -3,6 +3,7 @@ let reset = document.querySelector('.reset');
 let board = document.querySelector('.board');
 let squares = document.querySelectorAll('.squares');
 let text = document.querySelector('.text');
+let currentPlayer = document.querySelectorAll('.currentPlayer');
 let players = 'X';
 let win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
 let spots = ['' ,'' , '', '', '', '', '', '', ''];
@@ -21,10 +22,7 @@ start.addEventListener('click', () => {
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', () => {
             if (players === 'X') {
-                let x = document.createElement('p');
-                x.classList.add('x');
-                squares[i].appendChild(x);
-                x.innerText = 'x';
+                currentPlayer.innerText = 'X';
                 squares[i].style.backgroundColor = 'gray';
                 for(let j = 0; j < spots.length; j++) {
                     if (i == j) {
@@ -33,14 +31,9 @@ start.addEventListener('click', () => {
                 }
                 players = 'O';
                 text.innerText = `${players}'s Turn`;
-                console.log(winner);
-                console.log(players)
                 checkWinner()
             } else {
-                let o = document.createElement('p');
-                o.classList.add('o');
-                squares[i].appendChild(o);
-                o.innerText = 'o';
+                currentPlayer.innerText = 'O';
                 squares[i].style.backgroundColor = 'gray';
                 for(let j = 0; j < spots.length; j++) {
                     if (i == j) {
@@ -49,8 +42,6 @@ start.addEventListener('click', () => {
                 }
                 players = 'X';
                 text.innerText = `${players}'s Turn`;
-                console.log(winner)
-                console.log(players);
                 checkWinner()
             }
         })
@@ -71,6 +62,8 @@ function xWins () {
     
 function checkWinner () {
     for(let i = 0; i < win.length; i++) {
+        // win = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2, 5, 8], [0, 4, 8], [2, 4, 6]];
+        // spots = ['' ,'' , '', '', '', '', '', '', ''];
         let winConditon = win[i];
         let square1 = spots[winConditon[0]]
         let square2 = spots[winConditon[1]]
@@ -96,10 +89,6 @@ function checkWinner () {
     } else if (!spots.includes('')) {
         text.innerText = `It's a Draw`;
     }
-    
-}
-
-if (endGame === true) {
     
 }
 
