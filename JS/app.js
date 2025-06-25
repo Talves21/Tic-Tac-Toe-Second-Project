@@ -22,7 +22,7 @@ start.addEventListener('click', () => {
     for (let i = 0; i < squares.length; i++) {
         squares[i].addEventListener('click', () => {
             if (players === 'X') {
-                currentPlayer.innerText = 'X';
+                squares[i].innerText = 'X';
                 squares[i].style.backgroundColor = 'gray';
                 for(let j = 0; j < spots.length; j++) {
                     if (i == j) {
@@ -33,7 +33,7 @@ start.addEventListener('click', () => {
                 text.innerText = `${players}'s Turn`;
                 checkWinner()
             } else {
-                currentPlayer.innerText = 'O';
+                squares[i].innerText = 'O';
                 squares[i].style.backgroundColor = 'gray';
                 for(let j = 0; j < spots.length; j++) {
                     if (i == j) {
